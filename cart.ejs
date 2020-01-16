@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cart</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+   
+  <h1><a href="/" >BBZW Webshob</a></h1>
+        <table>
+        
+            <tr>
+                <td colspan="5">
+                    <table>
+                        <tr>
+                            <th>
+                                Produkt
+                            </th>
+                            <th>
+                                Einzelpreis
+                            </th>
+                            <th>
+                                Anzahl
+                            </th>
+                            <th>
+                                Preis
+                            </th>
+                            
+                        </tr>
+                        <% for (product of products) { %>
+                        <tr>
+                            <td>
+                                <%= product.productName %>
+                            </td>
+                            <td>
+                                <%= Number.parseFloat(product.specialOffer).toFixed(2) %> CHF
+                            </td>
+                            <td>
+                                <a href="/cart/product/delete/<%= product.id %>"><button>-</button></a>
+                                <%= product.amount %>
+                                <form action="/cart/product/add/<%= product.id %>" method="post">
+                                    <button type="submit">+</button>
+                                </form>
+                            </td>
+                            <td>
+                                <%= Number.parseFloat(product.amount * product.specialOffer).toFixed(2) %> CHF
+                            </td>
+                        </tr>
+                        <%} %>
+                        
+                    
+                    </table>
+                   
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                      <strong>Total:
+                        <%= Number.parseFloat(total).toFixed(2) %> CHF
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/checkout" type="submit">Checkout</a>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

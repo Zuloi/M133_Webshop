@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>index</title>
+</head>
+
+<body>
+   <h1><a href="/" >HeaderPicutre</a></h1>
+        <table width="100%">
+            <tr>
+                <td>
+                    <a href="/cart">Warenkorb <%= total %></a>
+                </td>
+            </tr>
+        </table>
+
+            <% for (p of products) { %>
+                <a href="/product/<%=p.id%>">
+                <table>
+                    <tr>
+                        <td><img src='/assets/<%= p.imageName %>' width="40%"></td>
+                    </tr>
+                    <tr>
+                        <td> <%= p.productName %></td>
+                    </tr>
+                    <tr>
+                        <td><%=  p.specialOffer%> CHF  <%= p.normalPrice %> CHF</td>
+                    </tr>
+                </table>
+                </a>
+            <%} %>
+</body>
+
+</html>
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkout</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+    <body>
+        <h1><a href="/" >BBZW Webshob</a></h1>
+        <table width="100%">
+            <tr>
+                <td>
+                    <strong>Warenkorb <%= Number.parseFloat(total).toFixed(2) %> CHF </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Vorname
+                </td>
+                <td>
+                    <input type="text" id="firstName" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nachname
+                </td>
+                <td>
+                    <input type="text" id="lastname" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email-Adresse
+                </td>
+                <td>
+                    <input type="email" id="firstName" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form method="POST">
+                    <button type="submit">Einkauf abschliessen</button>
+                </form>
+                </td>
+            </tr>
+        </table>             
+    </body>
+</html>

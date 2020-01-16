@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cart</title>
+</head>
+
+<body>
+
+   
+  <h1><a href="/" >HeaderPicutre</a></h1>
+        <table>
+            <tr>
+                <td>
+                    <a>Warenkorb <%=total %></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <table>
+                        <tr>
+                            <th>
+                                Produkt
+                            </th>
+                            <th>
+                                Einzelpreis
+                            </th>
+                            <th>
+                                Anzahl
+                            </th>
+                            <th>
+                                Preis
+                            </th>
+                            
+                        </tr>
+                        <% for (product of products) { %>
+                        <tr>
+                            <td>
+                                <%= product.productName %>
+                            </td>
+                            <td>
+                                <%= Number.parseFloat(product.specialOffer).toFixed(2) %> CHF
+                            </td>
+                            <td>
+                                <!--<form  action="" method="POST" >
+                                    <button type="submit" id="add">+</button>
+                               
+                                <%= p.amount  %>
+                                
+                                    <button type="submit" id="remove">-</button>
+                                </form>-->
+
+                                <a href="/cart/products/delete/<%= product.id %>"  ">
+                                    -
+                                </a>
+                                <%= product.amount %>
+                                <form id="add-product-form" action="/cart/products/add/<%= product.id %>" method="post">
+                                    <button type="submit">+</button>
+                                </form>
+                            </td>
+                            <td>
+                                <%= Number.parseFloat(product.amount * product.specialOffer).toFixed(2) %> CHF
+                            </td>
+                        </tr>
+                        <%} %>
+                        
+                    
+                    </table>
+                   
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                      <strong>Total:
+                        <%= Number.parseFloat(total).toFixed(2) %> CHF
+                    </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/checkout" type="submit">Checkout</a>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

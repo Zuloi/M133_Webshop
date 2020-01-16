@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>index</title>
+    <style>
+        .grid-container {
+          display: grid;
+          grid-template-columns: auto auto auto;
+          padding: 10px;
+        }
+        .grid-item {
+          padding: 20px;
+          font-size: 30px;
+          text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            }
+        </style>
+</head>
+
+<body>
+   <h1><a href="/" >BBZW Webshob</a></h1>
+        <table width="100%">
+            <tr>
+                <td>
+                    <a href="/cart"><strong>Warenkorb <%= Number.parseFloat(total).toFixed(2) %> CHF </strong></a>
+                </td>
+            </tr>
+        </table>
+        <div class="grid-container">
+            <% for (product of products) { %>
+                <div class="grid-item">
+                <a href="/product/<%=product.id%>">
+                    
+                    <table width="60%" >
+                        <tr>
+                            <td><img src='/assets/<%= product.imageName %>' width="60%"></td>
+                        </tr>
+                        <tr>
+                            <td> <%= product.productName %></td>
+                        </tr>
+                        <tr>
+                            <td><%=  product.specialOffer%> CHF  <del><%= product.normalPrice %> CHF</del></td>
+                        </tr>
+                    </table>
+                </a></div>
+            <%} %>
+        </div>
+</body>
+
+</html>
+
+<!-- <table>
+                    <tr>
+                        <td><img src='/assets/<%= product.imageName %>' width="40%"></td>
+                    </tr>
+                    <tr>
+                        <td> <%= product.productName %></td>
+                    </tr>
+                    <tr>
+                        <td><%=  product.specialOffer%> CHF  <del><%= product.normalPrice %> CHF</del></td>
+                    </tr>
+                </table>-->
