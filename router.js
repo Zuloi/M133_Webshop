@@ -16,11 +16,6 @@ router.post('/checkout', function (req, res) {
 router.get('/cart', function (req, res) {
     res.render(__dirname + '/cart', { products: req.session.cookie.cart.getCart(), total: req.session.cookie.cart.getTotal() });
 });
-//router.post('/product/:id', function (req, res) {
-  //  var product = loadProduct(req.params.id);
-    //req.session.cookie.cart.manageCart(product);
-   // res.render(__dirname + '/cart.ejs', {products: req.session.cookie.cart.getCart(),  total: req.session.cookie.cart.getTotal() });
-//});
 
 router.get('/cart/product/delete/:id', (req, res) => {
     var product = loadProduct(req.params.id);
