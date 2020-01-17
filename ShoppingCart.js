@@ -32,7 +32,7 @@ var ShoppingCart = /** @class */ (function () {
     ShoppingCart.prototype.remove = function (product) {
         this.removeToTotal(product.specialOffer);
         if ( product.amount == 1) {
-            this.products.splice(product);
+            this.products.splice(this.products.indexOf(product), 1);
         }
         else{
             product.amount--;
